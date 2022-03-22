@@ -1,6 +1,6 @@
 // Entrty point of my command line
 
-let helpFunc = require("./help");
+let helpFunc = require("./commands/help");
 let inputArr = process.argv.slice(2);
 let command = inputArr[0];
 

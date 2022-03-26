@@ -27,13 +27,12 @@ function organise(srcPath) {
     if (srcPath == undefined) {
         //The process.cwd() method returns the current working directory of the Node
         srcPath = process.cwd();
-        // console.log(srcPath);
     }
 
     // 2) Create a directory named organised_files
 
     let organisedFiles = path.join(srcPath, "organised_files");
-    // console.log(organisedFiles);
+
     if (!fs.existsSync(organisedFiles)) {
         fs.mkdirSync(organisedFiles);
     } else {
@@ -43,7 +42,6 @@ function organise(srcPath) {
     // 3) Scan the entire srcPath and make an array of the files
 
     let allFiles = fs.readdirSync(srcPath); //Reads the contents of the directory.
-    // console.log(allFiles);
 
     // 4) Traverse all files, classify them based on their extensions and move the files to new location
 
@@ -56,9 +54,8 @@ function organise(srcPath) {
             // Getting extension of each file:  let ext = +allFiles[i].split(".")[1];
 
             let ext = path.extname(allFiles[i]).split(".")[1]; //path.extname returns the extension of file
-            // console.log(ext);
+
             let folderName = getFolderName(ext); // Get folder name from ext
-            // console.log(folderName);
 
             copyFiletoDes(srcPath, fullPathOfFile, folderName); // Move the file to the correct folder
         }
@@ -89,11 +86,6 @@ function copyFiletoDes(srcPath, fullPathOfFile, folderName) {
     let desFileName = path.join(desFolderPath, fileName); // making destination file name
     fs.copyFileSync(fullPathOfFile, desFileName);
 }
-
-let srcPath =
-    "/Users/hargunrana/Desktop/FJP-Web Dev/WebDev/Projects/FileOrganiser/downloads";
-
-organise(srcPath);
 
 module.exports = {
     organise: organise,

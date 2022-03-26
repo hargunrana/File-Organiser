@@ -36,8 +36,3 @@ function treeHelper(targetPath, indent) {
 module.exports = {
     tree: tree,
 };
-
-let srcPath =
-    "/Users/hargunrana/Desktop/FJP-Web Dev/WebDev/Projects/FileOrganiser";
-
-tree(srcPath);
